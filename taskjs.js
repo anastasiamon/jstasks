@@ -5,30 +5,32 @@ for (let str="#";str.length<=7;) {
 }
 // вторая задача
     for (let i=1; i<100;i++) {
+        let x="";
     if (i%3!==0&&i%5!==0) { 
-        console.log(i);        
-       }else if (i%3==0&&i%5!==0) {
-      console.log('Fizz');
+         x+=i;        
+       }else if (i%3==0&&i%5!==0) {  
+         x+="Fizz";
     } else if (i%5==0&&i%3!==0) {
-        console.log ('Buzz');
-  
+         x+="Buzz";  
     } else {
-        console.log ('FizzBuzz')
+        x+="FizzBuzz";  
     }
-}
+    console.log(x)
+   }
+
  // третья задача
  
 for (let i=0; i<8;i++){
-    let string=' ';
-    let a;
-    let b;
-    if (i%2){
-        a='#';
-        b=' ';
-    } else {
-        a=' ';
-        b='#';
-    }    
+     let string=' ';
+     let a;
+     let b;
+if (i%2){
+    a='#';
+    b=' ';
+} else {
+    a=' ';
+    b='#';
+}    
 for (let j=0;j<8;j++) {
     if (j%2) {
         string+=a;
@@ -47,7 +49,7 @@ function isEven (n) {
  } else if (n>0){
  return isEven(n-2);
  } else {
-     return isEven(n+2);
+    return isEven(n+2);
  }
  }
 
@@ -58,9 +60,14 @@ console.log (isEven(-1));
  // пятая задача
 function range (x,y) {
    let todoList=[];
-   
+   if (x<=y){   
     for (let j=x;j<=y;j++)    
-    todoList.push(j);   
+    todoList.push(j);
+   }   
+   else {
+   for (let j=y;j<=x;j++)
+   todoList.unshift(j);
+   }
    return todoList;
    }
 
@@ -70,9 +77,8 @@ function sum(arrayForSum) {
         accumulator + currentValue);
 }
 
-console.log(range(1, 10));
-
-   console.log(sum(range(1, 10)));
+console.log(range(10, 1));
+console.log(sum(range(10, 1)));
  
  // шестая задача
   function reverseArray(array){
@@ -84,12 +90,30 @@ return newArray;
    }
 console.log(reverseArray(["A","B","C"]));
 
-function reverseArrayInPlace(array){
-  return array.sort((a,b)=>b-a);
- }
+// 1 вар.
+function reverseArrayInPlace(array) {
+let  newArray=[];
+for (i=array.length;i>0;i--){
+newArray.push(array.pop());
+}
+return newArray;
+for (j=array.length;j>0;j--){
+newArray.push(array.pop());
+}
+return array;
+}
 
 console.log(reverseArrayInPlace([1,2,3,4,5]))
-   
+ //  2 вар
+// function reverseArrayInPlace2(array2){
+// for (i=1;i<array2.length;i++){
+// let l=array2.length-i;
+// array2.splice(-5,array2.length-1,l);
+
+// }
+// return array2;
+// }
+// console.log(reverseArrayInPlace2([1,2,3,4,5]))
  // седьмая задача
   function arrayToList(array1) {
     if (array1.length > 1) {
